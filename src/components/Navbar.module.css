@@ -49,6 +49,13 @@
   color: var(--copper-light);
 }
 
+.flagImg {
+  display: block;
+  width: 24px;
+  height: auto;
+  border-radius: 2px;
+}
+
 /* =========================
    CENTER LOGO TEXT
 ========================= */
@@ -126,12 +133,10 @@
   border: none;
   padding: 0 10px;
   height: 100%;
-  font-family: "Cinzel", serif;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: white;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .langBtn:hover {
@@ -145,6 +150,11 @@
 .langDivider {
   color: rgba(255, 255, 255, 0.4);
   font-size: 11px;
+}
+
+.flagImg {
+  display: block;
+  border-radius: 2px;
 }
 
 .bookBtn {

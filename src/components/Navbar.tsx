@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useLang } from "@/lib/LangContext";
 import { t } from "@/lib/translations";
 import styles from "./Navbar.module.css";
+import { SE, GB } from "country-flag-icons/react/3x2";
 
 export default function Navbar() {
   const { lang, setLang } = useLang();
@@ -43,14 +44,26 @@ export default function Navbar() {
         {/* Desktop actions */}
         <div className={styles.desktopActions}>
           <div className={styles.langSwitch}>
-            <button className={`${styles.langBtn} ${lang === "sv" ? styles.langActive : ""}`} onClick={() => setLang("sv")}>SE</button>
+            <button
+              className={`${styles.langBtn} ${lang === "sv" ? styles.langActive : ""}`}
+              onClick={() => setLang("sv")}
+              aria-label="Svenska"
+            >
+              <SE title="Svenska" className={styles.flagImg} />
+            </button>
             <span className={styles.langDivider}>|</span>
-            <button className={`${styles.langBtn} ${lang === "en" ? styles.langActive : ""}`} onClick={() => setLang("en")}>EN</button>
+            <button
+              className={`${styles.langBtn} ${lang === "en" ? styles.langActive : ""}`}
+              onClick={() => setLang("en")}
+              aria-label="English"
+            >
+              <GB title="English" className={styles.flagImg} />
+            </button>
           </div>
           <a href="#kontakt" className={styles.bookBtn}>{tr.book}</a>
         </div>
 
-        {/* Mobile right — bara hamburger */}
+        {/* Hamburger */}
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ""}`}
           onClick={() => setMenuOpen(o => !o)}
@@ -69,8 +82,18 @@ export default function Navbar() {
           <li><a href="#kontakt" onClick={() => setMenuOpen(false)}>{tr.contact}</a></li>
         </ul>
         <div className={styles.mobileLang}>
-          <button className={`${styles.mobileLangBtn} ${lang === "sv" ? styles.mobileLangActive : ""}`} onClick={() => setLang("sv")}>🇸🇪 Svenska</button>
-          <button className={`${styles.mobileLangBtn} ${lang === "en" ? styles.mobileLangActive : ""}`} onClick={() => setLang("en")}>🇺🇸 English</button>
+          <button
+            className={`${styles.mobileLangBtn} ${lang === "sv" ? styles.mobileLangActive : ""}`}
+            onClick={() => setLang("sv")}
+          >
+            🇸🇪 Svenska
+          </button>
+          <button
+            className={`${styles.mobileLangBtn} ${lang === "en" ? styles.mobileLangActive : ""}`}
+            onClick={() => setLang("en")}
+          >
+            🇬🇧 English
+          </button>
         </div>
         <a href="#kontakt" className={styles.mobileBookBtn} onClick={() => setMenuOpen(false)}>{tr.book}</a>
       </div>
