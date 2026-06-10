@@ -18,11 +18,10 @@ export default function Hero() {
       <div className={styles.overlay} />
 
       <div className={styles.content}>
-        <div className={styles.eyebrow}>{tr.eyebrow}</div>
-        <h1 className={styles.title}>
-          {tr.title1}<br />
-          <span className={styles.kingWord}>{tr.title2}</span>
-        </h1>
+        {/* Logo ersätter titeltexten */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo.png" alt="Coal is King" className={styles.heroLogo} />
+
         <p className={styles.sub}>{tr.sub}</p>
         <div className={styles.btns}>
           <a href="#meny" className={styles.btnPrimary}>{tr.btn1}</a>
@@ -46,10 +45,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className={styles.scroll}>
-        <div className={styles.scrollLine} />
-      </div>
+      <div className={styles.scroll}><div className={styles.scrollLine} /></div>
     </section>
   );
 }

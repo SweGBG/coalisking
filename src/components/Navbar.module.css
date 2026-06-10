@@ -6,14 +6,13 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 0 48px;
-  height: 90px;
+  height: 70px;
   background: transparent;
-  transition: background 0.3s, height 0.3s;
+  transition: background 0.3s;
 }
 .scrolled {
   background: rgba(10, 8, 6, 0.97);
   backdrop-filter: blur(20px);
-  height: 70px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -46,22 +45,21 @@
 }
 .linksLeft a:hover, .linksRight a:hover { color: var(--copper-light); }
 
-/* Center logo */
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Center home button — text only */
+.homeBtn {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--copper-light);
+  transition: color 0.15s;
+  text-align: center;
+  white-space: nowrap;
 }
-.logo img {
-  height: 80px;
-  width: auto;
-  object-fit: contain;
-  mix-blend-mode: lighten;
-  transition: height 0.3s;
-}
-.scrolled .logo img { height: 58px; }
+.homeBtn:hover { color: var(--ember-light); }
 
-/* Actions — lang + book btn, positioned absolute right */
+/* Actions — absolute right */
 .actions {
   position: absolute;
   right: 48px;
@@ -128,16 +126,10 @@
 
 /* ── MOBILE ── */
 @media (max-width: 900px) {
-  .nav {
-    grid-template-columns: 1fr auto;
-    padding: 0 20px;
-    height: 70px;
-  }
+  .nav { grid-template-columns: 1fr auto; padding: 0 20px; }
   .linksLeft { display: none; }
   .linksRight { display: none; }
-  .logo { justify-content: flex-start; }
-  .logo img { height: 52px; }
-  .scrolled .logo img { height: 46px; }
+  .homeBtn { font-size: 11px; letter-spacing: 0.15em; }
   .actions { position: static; transform: none; }
   .bookBtn { display: none; }
   .langSwitch { display: none; }

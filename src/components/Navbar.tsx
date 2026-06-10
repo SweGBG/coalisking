@@ -31,10 +31,9 @@ export default function Navbar() {
           <li><a href="#om-oss">{tr.about}</a></li>
         </ul>
 
-        {/* Center logo */}
-        <a href="#" className={styles.logo}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Coal is King" />
+        {/* Center — text home button */}
+        <a href="#" className={styles.homeBtn}>
+          Coal is King
         </a>
 
         {/* Right links */}
@@ -60,6 +59,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
         <ul className={styles.mobileLinks}>
+          <li><a href="#" onClick={() => setMenuOpen(false)}>Home</a></li>
           <li><a href="#meny" onClick={() => setMenuOpen(false)}>{tr.menu}</a></li>
           <li><a href="#om-oss" onClick={() => setMenuOpen(false)}>{tr.about}</a></li>
           <li><a href="#galleri" onClick={() => setMenuOpen(false)}>{tr.gallery}</a></li>

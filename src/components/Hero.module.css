@@ -32,41 +32,12 @@
   max-width: 800px;
 }
 
-.eyebrow {
-  font-family: 'Cinzel', serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--copper-light);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-.eyebrow::before, .eyebrow::after {
-  content: '';
-  width: 40px;
-  height: 1px;
-  background: var(--copper);
-}
-
-.title {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(56px, 10vw, 120px);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.02em;
-  color: var(--cream);
-  margin-bottom: 28px;
-  text-shadow: 0 4px 40px rgba(0,0,0,0.8);
-}
-
-.kingWord {
-  color: var(--ember-light);
-  display: block;
-  font-style: italic;
+.heroLogo {
+  width: min(560px, 85vw);
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto 12px;
+  filter: drop-shadow(0 8px 48px rgba(0,0,0,0.9));
 }
 
 .sub {
