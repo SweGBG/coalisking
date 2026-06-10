@@ -1,0 +1,104 @@
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  height: 80px;
+  background: transparent;
+  transition: background 0.3s, height 0.3s;
+}
+.scrolled {
+  background: rgba(10, 8, 6, 0.97);
+  backdrop-filter: blur(20px);
+  height: 66px;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo { flex-shrink: 0; }
+.logo img { height: 56px; width: auto; object-fit: contain; }
+.scrolled .logo img { height: 44px; }
+
+.links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+}
+.links a {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  transition: color 0.15s;
+}
+.links a:hover { color: var(--copper-light); }
+
+.right { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+
+.langSwitch { display: flex; align-items: center; background: var(--ember); overflow: hidden; height: 34px; }
+.langBtn { background: transparent; border: none; padding: 0 10px; height: 100%; font-family: 'Cinzel', serif; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; color: #fff; cursor: pointer; transition: background 0.15s; }
+.langBtn:hover { background: rgba(255,255,255,0.15); }
+.langActive { background: rgba(0,0,0,0.25); }
+.langDivider { color: rgba(255,255,255,0.3); font-size: 11px; user-select: none; }
+
+.bookBtn {
+  background: var(--ember);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.bookBtn:hover { background: var(--ember-light); }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; background: transparent; border: none; padding: 6px; cursor: pointer; flex-shrink: 0; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--cream); border-radius: 1px; transition: all 0.25s; transform-origin: center; }
+.hamburgerOpen span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburgerOpen span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburgerOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile menu */
+.mobileMenu {
+  position: fixed;
+  top: 66px; left: 0; right: 0; bottom: 0;
+  z-index: 290;
+  background: var(--coal);
+  border-top: 1px solid var(--border);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+.mobileMenuOpen { max-height: calc(100vh - 66px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+
+.mobileLinks { list-style: none; padding: 8px 24px 0; }
+.mobileLinks li { border-bottom: 1px solid var(--border); }
+.mobileLinks a { display: block; padding: 18px 0; font-family: 'Cinzel', serif; font-size: 20px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); transition: color 0.15s; }
+.mobileLinks a:hover { color: var(--copper-light); }
+
+.mobileLang { display: flex; gap: 10px; padding: 20px 24px 0; }
+.mobileLangBtn { flex: 1; background: var(--ash); border: 1px solid var(--border2); padding: 13px; font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.mobileLangActive { background: rgba(200,82,26,0.15); border-color: var(--ember); color: var(--ember-light); }
+
+.mobileBookBtn { display: block; margin: 16px 24px 32px; background: var(--ember); color: #fff; padding: 16px; font-family: 'Cinzel', serif; font-weight: 700; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; transition: background 0.15s; }
+.mobileBookBtn:hover { background: var(--ember-light); }
+
+.backdrop { position: fixed; inset: 0; z-index: 280; background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+
+@media (max-width: 900px) {
+  .nav { padding: 0 20px; }
+  .links { display: none; }
+  .bookBtn { display: none; }
+  .langSwitch { display: none; }
+  .hamburger { display: flex; }
+  .logo img { height: 48px; }
+}

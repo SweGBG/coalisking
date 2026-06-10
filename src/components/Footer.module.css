@@ -1,0 +1,16 @@
+.footer { background: var(--black); border-top: 1px solid var(--border); padding: 64px 20px 40px; }
+
+.inner { max-width: 600px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+.logo { height: 80px; width: auto; opacity: 0.85; }
+
+.tagline { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--copper); }
+
+.divider { width: 60px; height: 1px; background: var(--border2); }
+
+.links { display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
+.links a { font-family: 'Cinzel', serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); transition: color 0.15s; }
+.links a:hover { color: var(--copper-light); }
+
+.bottom { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; border-top: 1px solid var(--border); padding-top: 20px; width: 100%; }
+.bottom span { font-size: 11px; color: var(--muted2); font-family: 'Cinzel', serif; letter-spacing: 0.05em; }
