@@ -4,14 +4,16 @@
   left: 0;
   right: 0;
   z-index: 300;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto auto;
+
+  display: flex;
   align-items: center;
-  padding: 0 48px;
+  justify-content: center;
+
   height: 70px;
+  padding: 0 48px;
+
   background: transparent;
   transition: background 0.3s;
-  gap: 0;
 }
 
 .scrolled {
@@ -20,25 +22,21 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* =========================
+   LEFT LINKS
+========================= */
+
 .linksLeft {
+  position: absolute;
+  left: 300px;
+
   display: flex;
-  gap: 36px;
+  gap: 42px;
   list-style: none;
-  justify-content: flex-end;
-  padding-right: 32px;
 }
 
-.linksRight {
-  display: flex;
-  gap: 36px;
-  list-style: none;
-  justify-content: flex-start;
-  padding-left: 32px;
-}
-
-.linksLeft a,
-.linksRight a {
-  font-family: 'Cinzel', serif;
+.linksLeft a {
+  font-family: "Cinzel", serif;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -47,32 +45,72 @@
   transition: color 0.15s;
 }
 
-.linksLeft a:hover,
-.linksRight a:hover {
+.linksLeft a:hover {
   color: var(--copper-light);
 }
 
+/* =========================
+   CENTER LOGO TEXT
+========================= */
+
 .homeBtn {
-  font-family: 'Cinzel', serif;
-  font-size: 13px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-family: "Cinzel", serif;
+  font-size: 15px;
   font-weight: 900;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+
   color: var(--copper-light);
-  transition: color 0.15s;
-  text-align: center;
   white-space: nowrap;
+  text-align: center;
 }
 
 .homeBtn:hover {
   color: var(--ember-light);
 }
 
+/* =========================
+   RIGHT LINKS
+========================= */
+
+.linksRight {
+  position: absolute;
+  left: calc(50% + 140px);
+
+  display: flex;
+  gap: 42px;
+  list-style: none;
+}
+
+.linksRight a {
+  font-family: "Cinzel", serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  transition: color 0.15s;
+}
+
+.linksRight a:hover {
+  color: var(--copper-light);
+}
+
+/* =========================
+   DESKTOP ACTIONS
+========================= */
+
 .desktopActions {
+  position: absolute;
+  right: 48px;
+
   display: flex;
   align-items: center;
   gap: 10px;
-  padding-left: 24px;
 }
 
 .langSwitch {
@@ -88,13 +126,12 @@
   border: none;
   padding: 0 10px;
   height: 100%;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.1em;
-  color: #fff;
+  color: white;
   cursor: pointer;
-  transition: background 0.15s;
 }
 
 .langBtn:hover {
@@ -106,21 +143,21 @@
 }
 
 .langDivider {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.4);
   font-size: 11px;
-  user-select: none;
 }
 
 .bookBtn {
   background: var(--ember);
-  color: #fff;
-  border: none;
+  color: white;
   padding: 10px 22px;
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
+
+  font-family: "Cinzel", serif;
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+
   transition: background 0.15s;
   white-space: nowrap;
 }
@@ -129,26 +166,24 @@
   background: var(--ember-light);
 }
 
-/* Hamburger — alltid i DOM, visas bara på mobil */
+/* =========================
+   HAMBURGER
+========================= */
+
 .hamburger {
   display: none;
   flex-direction: column;
   gap: 5px;
   background: transparent;
   border: none;
-  padding: 6px;
   cursor: pointer;
-  margin-left: 8px;
 }
 
 .hamburger span {
-  display: block;
-  width: 22px;
+  width: 24px;
   height: 2px;
   background: var(--cream);
-  border-radius: 1px;
   transition: all 0.25s;
-  transform-origin: center;
 }
 
 .hamburgerOpen span:nth-child(1) {
@@ -157,134 +192,152 @@
 
 .hamburgerOpen span:nth-child(2) {
   opacity: 0;
-  transform: scaleX(0);
 }
 
 .hamburgerOpen span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ── SLIDE-DOWN MOBILMENY ── */
+/* =========================
+   MOBILE MENU
+========================= */
+
 .mobileMenu {
-  position: fixed;
-  top: 70px;
-  left: 0;
-  right: 0;
-  z-index: 290;
-  background: var(--coal);
-  border-bottom: 2px solid var(--ember);
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
-
-.mobileMenuOpen {
-  max-height: calc(100vh - 70px);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-.mobileLinks {
-  list-style: none;
-  padding: 8px 24px 0;
-}
-
-.mobileLinks li {
-  border-bottom: 1px solid var(--border);
-}
-
-.mobileLinks a {
-  display: block;
-  padding: 18px 0;
-  font-family: 'Cinzel', serif;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text);
-  transition: color 0.15s;
-}
-
-.mobileLinks a:hover {
-  color: var(--copper-light);
-}
-
-.mobileLang {
-  display: flex;
-  gap: 10px;
-  padding: 20px 24px 0;
-}
-
-.mobileLangBtn {
-  flex: 1;
-  background: var(--ash);
-  border: 1px solid var(--border2);
-  padding: 13px;
-  font-family: 'Cinzel', serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--muted);
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.mobileLangActive {
-  background: rgba(200, 82, 26, 0.15);
-  border-color: var(--ember);
-  color: var(--ember-light);
-}
-
-.mobileBookBtn {
-  display: block;
-  margin: 16px 24px 32px;
-  background: var(--ember);
-  color: #fff;
-  padding: 16px;
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-align: center;
-  transition: background 0.15s;
-}
-
-.mobileBookBtn:hover {
-  background: var(--ember-light);
+  display: none;
 }
 
 .backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 280;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(2px);
+  display: none;
 }
 
-/* ── RESPONSIVE ── */
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 900px) {
+
   .nav {
-    grid-template-columns: 1fr auto;
+    justify-content: center;
     padding: 0 20px;
   }
 
-  .linksLeft {
-    display: none;
-  }
-
-  .linksRight {
-    display: none;
-  }
-
+  .linksLeft,
+  .linksRight,
   .desktopActions {
     display: none;
   }
 
   .homeBtn {
-    justify-self: start;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
   }
 
   .hamburger {
     display: flex;
+    position: absolute;
+    right: 20px;
+  }
+
+  .mobileMenu {
+    display: block;
+
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+
+    z-index: 290;
+
+    background: var(--coal);
+
+    border-bottom: 2px solid var(--ember);
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height 0.35s ease;
+  }
+
+  .mobileMenuOpen {
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
+  }
+
+  .mobileLinks {
+    list-style: none;
+    padding: 8px 24px 0;
+  }
+
+  .mobileLinks li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobileLinks a {
+    display: block;
+    padding: 18px 0;
+
+    font-family: "Cinzel", serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: var(--text);
+  }
+
+  .mobileLang {
+    display: flex;
+    gap: 10px;
+    padding: 20px 24px;
+  }
+
+  .mobileLangBtn {
+    flex: 1;
+    padding: 13px;
+
+    background: var(--ash);
+    border: 1px solid var(--border2);
+
+    font-family: "Cinzel", serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    color: var(--muted);
+  }
+
+  .mobileLangActive {
+    border-color: var(--ember);
+    color: var(--ember-light);
+  }
+
+  .mobileBookBtn {
+    display: block;
+
+    margin: 0 24px 24px;
+
+    padding: 16px;
+
+    background: var(--ember);
+    color: white;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .backdrop {
+    display: block;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 280;
+
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
   }
 }

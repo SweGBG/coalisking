@@ -32,7 +32,7 @@ export default function Navbar() {
         </ul>
 
         {/* Center home */}
-        <a href="#" className={styles.homeBtn}>Coal is King</a>
+        <a href="#" className={styles.homeBtn}>Coal Is King</a>
 
         {/* Right links — desktop */}
         <ul className={styles.linksRight}>
