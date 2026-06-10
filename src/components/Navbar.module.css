@@ -28,7 +28,7 @@
 
 .linksLeft {
   position: absolute;
-  left: 300px;
+  right: calc(50% + 140px);
 
   display: flex;
   gap: 42px;
