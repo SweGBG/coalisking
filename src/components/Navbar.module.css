@@ -100,7 +100,7 @@
 /* Mobile menu */
 .mobileMenu {
   position: fixed;
-  top: 70px; left: 0; right: 0; bottom: 0;
+  top: 70px; left: 0; right: 0;
   z-index: 290;
   background: var(--coal);
   border-top: 1px solid var(--border);
@@ -108,7 +108,11 @@
   overflow: hidden;
   transition: max-height 0.35s ease;
 }
-.mobileMenuOpen { max-height: calc(100vh - 70px); overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.mobileMenuOpen {
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
 .mobileLinks { list-style: none; padding: 8px 24px 0; }
 .mobileLinks li { border-bottom: 1px solid var(--border); }
