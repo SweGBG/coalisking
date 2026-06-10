@@ -130,11 +130,20 @@
 
 /* ── MOBILE ── */
 @media (max-width: 900px) {
-  .nav { grid-template-columns: 1fr auto; padding: 0 20px; }
+  .nav {
+    grid-template-columns: 1fr auto;
+    padding: 0 20px;
+  }
   .linksLeft { display: none; }
   .linksRight { display: none; }
   .homeBtn { font-size: 11px; letter-spacing: 0.15em; }
-  .actions { position: static; transform: none; }
+  .actions {
+    position: static;
+    transform: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
   .bookBtn { display: none; }
   .langSwitch { display: none; }
   .hamburger { display: flex; }

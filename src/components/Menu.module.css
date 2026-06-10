@@ -44,6 +44,16 @@
 }
 .filters::-webkit-scrollbar { display: none; }
 
+@media (max-width: 768px) {
+  .filters {
+    justify-content: flex-start;
+    padding: 0 20px 4px;
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+}
+
 .filter {
   background: transparent;
   border: 1px solid var(--border2);
