@@ -1,8 +1,11 @@
+/* ── SECTION BASE ── */
 .section {
   padding: 100px 80px;
   background: var(--coal);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .inner {
@@ -12,23 +15,57 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
 }
 
-.imgWrap { position: relative; aspect-ratio: 4/5; overflow: hidden; }
-.imgWrap img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) saturate(0.9); }
-.imgOverlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,8,6,0.6) 100%); }
+/* ── IMAGES & BADGES ── */
+.imgWrap {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+
+.imgWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(0.9);
+}
+
+.imgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(10, 8, 6, 0.6) 100%);
+}
 
 .tempBadge {
   position: absolute;
-  bottom: 24px; right: 24px;
-  background: rgba(10,8,6,0.92);
+  bottom: 24px;
+  right: 24px;
+  background: rgba(10, 8, 6, 0.92);
   border: 1px solid var(--ember);
   padding: 20px 24px;
   text-align: center;
 }
-.tempNum { font-family: 'Cinzel', serif; font-size: 36px; font-weight: 900; color: var(--ember-light); line-height: 1; }
-.tempLabel { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 
+.tempNum {
+  font-family: 'Cinzel', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--ember-light);
+  line-height: 1;
+}
+
+.tempLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* ── TYPOGRAPHY ── */
 .eyebrow {
   font-family: 'Cinzel', serif;
   font-size: 10px;
@@ -58,6 +95,7 @@
   font-weight: 400;
 }
 
+/* ── COUNTERS / STATS ── */
 .stats {
   display: flex;
   gap: 0;
@@ -65,17 +103,75 @@
   padding-top: 28px;
   margin-top: 8px;
 }
-.stat {
-  padding-right: 28px; margin-right: 28px;
-  border-right: 1px solid var(--border);
-  display: flex; flex-direction: column; gap: 4px;
-}
-.stat:last-child { border-right: none; }
-.statNum { font-family: 'Cinzel', serif; font-size: 24px; font-weight: 900; color: var(--copper-light); line-height: 1; }
-.statLabel { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; font-family: 'Cinzel', serif; text-transform: uppercase; }
 
+.stat {
+  padding-right: 28px;
+  margin-right: 28px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.statNum {
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--copper-light);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+}
+
+/* ── RESPONSIVE (MOBILE FIX) ── */
 @media (max-width: 900px) {
-  .section { padding: 64px 20px; }
-  .inner { grid-template-columns: 1fr; gap: 40px; }
-  .imgWrap { aspect-ratio: 16/9; }
+  .section {
+    padding: 64px 20px;
+    overflow: hidden;
+    /* Förhindrar att något blöder ut och skapar sidscroll */
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .imgWrap {
+    aspect-ratio: 16/9;
+  }
+
+  /* Tvingar långa rubriker och brödtext att brytas vid skärmkanten */
+  .title,
+  .body {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Fixar mätarna längst ner så de inte trycker ut skärmbredden */
+  .stats {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .stat {
+    padding-right: 16px;
+    margin-right: 0;
+    border-right: 1px solid var(--border);
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 80px;
+  }
+
+  .stat:last-child {
+    border-right: none;
+  }
 }

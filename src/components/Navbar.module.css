@@ -262,19 +262,20 @@
 }
 
 /* ── RESPONSIVE ── */
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .nav {
     grid-template-columns: 1fr auto;
     padding: 0 20px;
-    box-sizing: border-box;
-    /* Säkerställer att padding inte gör navbaren bredare än skärmen */
-    width: 100%;
   }
 
-  /* Grupperade element som ska döljas på mobil */
-  .linksLeft,
-  .linksRight,
+  .linksLeft {
+    display: none;
+  }
+
+  .linksRight {
+    display: none;
+  }
+
   .desktopActions {
     display: none;
   }
@@ -285,7 +286,5 @@
 
   .hamburger {
     display: flex;
-    justify-self: end;
-    /* Tvingar hamburgarikonen att ligga dikt an mot högerkanten */
   }
 }
