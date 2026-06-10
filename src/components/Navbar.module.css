@@ -165,65 +165,43 @@
 }
 
 /* ── SLIDE-DOWN MOBILMENY ── */
-/* ── FULLSKÄRMS MOBILMENY (Samma stil som HiTekk) ── */
 .mobileMenu {
   position: fixed;
-  top: 0;
+  top: 70px;
   left: 0;
   right: 0;
-  bottom: 0;
-  z-index: 400;
-  /* Högre än .nav för att ligga helt överst */
+  z-index: 290;
   background: var(--coal);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0 0 24px 0;
-  /* Padding i botten */
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.25s ease;
+  border-bottom: 2px solid var(--ember);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
 }
 
 .mobileMenuOpen {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Header inuti menyn för att matcha HiTekks toppremsa */
-.mobileMenuHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 70px;
-  padding: 0 20px;
-  border-b: 1px solid var(--border);
+  max-height: calc(100vh - 70px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .mobileLinks {
   list-style: none;
-  padding: 20px 24px 0;
-  flex-grow: 1;
-  /* Trycker ner språket och knappen till botten */
-  display: flex;
-  flex-direction: column;
+  padding: 8px 24px 0;
 }
 
 .mobileLinks li {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border);
 }
 
 .mobileLinks a {
   display: block;
-  padding: 20px 0;
+  padding: 18px 0;
   font-family: 'Cinzel', serif;
-  font-size: 24px;
-  /* Lite större text för HiTekk-looken */
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: none;
-  /* Ändra till uppercase om du föredrar det */
-  color: #fff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
   transition: color 0.15s;
 }
 
@@ -233,37 +211,32 @@
 
 .mobileLang {
   display: flex;
-  gap: 12px;
-  padding: 0 24px;
+  gap: 10px;
+  padding: 20px 24px 0;
 }
 
 .mobileLangBtn {
   flex: 1;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 14px;
+  background: var(--ash);
+  border: 1px solid var(--border2);
+  padding: 13px;
   font-family: 'Cinzel', serif;
   font-size: 14px;
   font-weight: 700;
-  color: #fff;
-  border-radius: 6px;
+  color: var(--muted);
   cursor: pointer;
   transition: all 0.15s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
 }
 
 .mobileLangActive {
-  background: rgba(200, 82, 26, 0.1);
+  background: rgba(200, 82, 26, 0.15);
   border-color: var(--ember);
   color: var(--ember-light);
 }
 
 .mobileBookBtn {
   display: block;
-  margin: 16px 24px 12px;
+  margin: 16px 24px 32px;
   background: var(--ember);
   color: #fff;
   padding: 16px;
@@ -273,7 +246,6 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-align: center;
-  border-radius: 6px;
   transition: background 0.15s;
 }
 
@@ -281,9 +253,12 @@
   background: var(--ember-light);
 }
 
-/* Vi behöver inte backdrop längre eftersom menyn täcker 100% av skärmen */
 .backdrop {
-  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 280;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
 }
 
 /* ── RESPONSIVE ── */
