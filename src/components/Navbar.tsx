@@ -25,41 +25,44 @@ export default function Navbar() {
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
 
-        {/* Left links */}
+        {/* Left links — desktop */}
         <ul className={styles.linksLeft}>
           <li><a href="#meny">{tr.menu}</a></li>
           <li><a href="#om-oss">{tr.about}</a></li>
         </ul>
 
-        {/* Center — text home button */}
-        <a href="#" className={styles.homeBtn}>
-          Coal is King
-        </a>
+        {/* Center home */}
+        <a href="#" className={styles.homeBtn}>Coal is King</a>
 
-        {/* Right links */}
+        {/* Right links — desktop */}
         <ul className={styles.linksRight}>
           <li><a href="#galleri">{tr.gallery}</a></li>
           <li><a href="#kontakt">{tr.contact}</a></li>
         </ul>
 
-        {/* Actions */}
-        <div className={styles.actions}>
+        {/* Desktop actions */}
+        <div className={styles.desktopActions}>
           <div className={styles.langSwitch}>
             <button className={`${styles.langBtn} ${lang === "sv" ? styles.langActive : ""}`} onClick={() => setLang("sv")}>SE</button>
             <span className={styles.langDivider}>|</span>
             <button className={`${styles.langBtn} ${lang === "en" ? styles.langActive : ""}`} onClick={() => setLang("en")}>EN</button>
           </div>
           <a href="#kontakt" className={styles.bookBtn}>{tr.book}</a>
-          <button className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ""}`} onClick={() => setMenuOpen(o => !o)} aria-label="Meny">
-            <span /><span /><span />
-          </button>
         </div>
+
+        {/* Mobile right — bara hamburger */}
+        <button
+          className={`${styles.hamburger} ${menuOpen ? styles.hamburgerOpen : ""}`}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label="Meny"
+        >
+          <span /><span /><span />
+        </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Slide-down mobilmeny */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
         <ul className={styles.mobileLinks}>
-          <li><a href="#" onClick={() => setMenuOpen(false)}>Home</a></li>
           <li><a href="#meny" onClick={() => setMenuOpen(false)}>{tr.menu}</a></li>
           <li><a href="#om-oss" onClick={() => setMenuOpen(false)}>{tr.about}</a></li>
           <li><a href="#galleri" onClick={() => setMenuOpen(false)}>{tr.gallery}</a></li>
@@ -71,6 +74,7 @@ export default function Navbar() {
         </div>
         <a href="#kontakt" className={styles.mobileBookBtn} onClick={() => setMenuOpen(false)}>{tr.book}</a>
       </div>
+
       {menuOpen && <div className={styles.backdrop} onClick={() => setMenuOpen(false)} />}
     </>
   );
