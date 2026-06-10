@@ -24,21 +24,27 @@ export default function Navbar() {
   return (
     <>
       <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
-        {/* Logo */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+
+        {/* Left links */}
+        <ul className={styles.linksLeft}>
+          <li><a href="#meny">{tr.menu}</a></li>
+          <li><a href="#om-oss">{tr.about}</a></li>
+        </ul>
+
+        {/* Center logo */}
         <a href="#" className={styles.logo}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo.png" alt="Coal is King" />
         </a>
 
-        {/* Desktop links */}
-        <ul className={styles.links}>
-          <li><a href="#meny">{tr.menu}</a></li>
-          <li><a href="#om-oss">{tr.about}</a></li>
+        {/* Right links */}
+        <ul className={styles.linksRight}>
           <li><a href="#galleri">{tr.gallery}</a></li>
           <li><a href="#kontakt">{tr.contact}</a></li>
         </ul>
 
-        <div className={styles.right}>
+        {/* Actions */}
+        <div className={styles.actions}>
           <div className={styles.langSwitch}>
             <button className={`${styles.langBtn} ${lang === "sv" ? styles.langActive : ""}`} onClick={() => setLang("sv")}>SE</button>
             <span className={styles.langDivider}>|</span>
