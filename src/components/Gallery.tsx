@@ -8,6 +8,8 @@ const photos = [
   { src: "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80&fit=crop&crop=center", span: "" },
   { src: "https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80&fit=crop&crop=center", span: "" },
   { src: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600&q=80&fit=crop&crop=center", span: "" },
+  // Rad 2 kolumn 3 — grillad lax med avokado, mörk och snygg
+  { src: "https://images.unsplash.com/photo-1611599537845-1c7aca0091c0?w=600&q=80&fit=crop&crop=center", span: "" },
   { src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80&fit=crop&crop=center", span: "wide" },
   { src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80&fit=crop&crop=center", span: "" },
 ];

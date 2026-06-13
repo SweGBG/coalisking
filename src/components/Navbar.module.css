@@ -1,120 +1,94 @@
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 300;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   height: 70px;
   padding: 0 48px;
-
   background: transparent;
-  transition: background 0.3s;
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
 }
 
 .scrolled {
-  background: rgba(10, 8, 6, 0.97);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(8,6,10,0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border2);
+  box-shadow: 0 2px 40px rgba(0,0,0,0.6);
 }
 
-/* =========================
-   LEFT LINKS
-========================= */
-
+/* ── LEFT LINKS ── */
 .linksLeft {
   position: absolute;
   right: calc(50% + 140px);
-
   display: flex;
   gap: 42px;
   list-style: none;
 }
 
-.linksLeft a {
-  font-family: "Cinzel", serif;
-  font-size: 12px;
+.linksLeft a,
+.linksRight a {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--cream-dim);
-  transition: color 0.15s;
+  transition: color 0.2s;
+  position: relative;
 }
 
-.linksLeft a:hover {
-  color: var(--copper-light);
+.linksLeft a::after,
+.linksRight a::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -3px;
+  width: 0; height: 1px;
+  background: var(--ember);
+  transition: width 0.25s ease;
 }
 
-.flagImg {
-  display: block;
-  width: 24px;
-  height: auto;
-  border-radius: 2px;
-}
+.linksLeft a:hover,
+.linksRight a:hover { color: var(--cream); }
 
-/* =========================
-   CENTER LOGO TEXT
-========================= */
+.linksLeft a:hover::after,
+.linksRight a:hover::after { width: 100%; }
 
+/* ── CENTER LOGO ── */
 .homeBtn {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
-  font-family: "Cinzel", serif;
+  font-family: 'Cinzel', serif;
   font-size: 15px;
   font-weight: 900;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-
-  color: var(--copper-light);
+  color: var(--cream);
   white-space: nowrap;
   text-align: center;
+  transition: color 0.2s, text-shadow 0.2s;
 }
-
 .homeBtn:hover {
-  color: var(--ember-light);
+  color: #fff;
+  text-shadow: 0 0 20px rgba(184,35,42,0.5);
 }
 
-/* =========================
-   RIGHT LINKS
-========================= */
-
+/* ── RIGHT LINKS ── */
 .linksRight {
   position: absolute;
   left: calc(50% + 140px);
-
   display: flex;
   gap: 42px;
   list-style: none;
 }
 
-.linksRight a {
-  font-family: "Cinzel", serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cream-dim);
-  transition: color 0.15s;
-}
-
-.linksRight a:hover {
-  color: var(--copper-light);
-}
-
-/* =========================
-   DESKTOP ACTIONS
-========================= */
-
+/* ── DESKTOP ACTIONS ── */
 .desktopActions {
   position: absolute;
   right: 48px;
-
   display: flex;
   align-items: center;
   gap: 10px;
@@ -123,9 +97,10 @@
 .langSwitch {
   display: flex;
   align-items: center;
-  background: var(--ember);
+  border: 1px solid var(--border2);
   overflow: hidden;
   height: 34px;
+  background: rgba(255,255,255,0.04);
 }
 
 .langBtn {
@@ -137,49 +112,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.15s;
 }
+.langBtn:hover { background: rgba(255,255,255,0.08); }
+.langActive { background: rgba(184,35,42,0.25); }
 
-.langBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.langActive {
-  background: rgba(0, 0, 0, 0.25);
-}
-
-.langDivider {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 11px;
-}
+.langDivider { color: rgba(255,255,255,0.25); font-size: 11px; }
 
 .flagImg {
   display: block;
+  width: 22px;
+  height: auto;
   border-radius: 2px;
 }
 
+/* BOOK BUTTON — crimson with dark glow */
 .bookBtn {
   background: var(--ember);
-  color: white;
+  color: #fff;
   padding: 10px 22px;
-
-  font-family: "Cinzel", serif;
-  font-size: 12px;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-
-  transition: background 0.15s;
+  border: 1px solid transparent;
+  transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
-
+.bookBtn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
 .bookBtn:hover {
   background: var(--ember-light);
+  box-shadow: 0 0 24px rgba(184,35,42,0.45), 0 4px 16px rgba(0,0,0,0.4);
+  border-color: rgba(212,50,58,0.4);
 }
 
-/* =========================
-   HAMBURGER
-========================= */
-
+/* ── HAMBURGER ── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -187,167 +163,97 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  padding: 4px;
 }
-
 .hamburger span {
-  width: 24px;
-  height: 2px;
+  width: 24px; height: 2px;
   background: var(--cream);
   transition: all 0.25s;
+  display: block;
 }
+.hamburgerOpen span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburgerOpen span:nth-child(2) { opacity: 0; width: 0; }
+.hamburgerOpen span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.hamburgerOpen span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
+/* ── MOBILE MENU ── */
+.mobileMenu { display: none; }
+.backdrop { display: none; }
 
-.hamburgerOpen span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburgerOpen span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-.mobileMenu {
-  display: none;
-}
-
-.backdrop {
-  display: none;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
+/* ── MOBILE ── */
 @media (max-width: 900px) {
-
-  .nav {
-    justify-content: center;
-    padding: 0 20px;
-  }
-
-  .linksLeft,
-  .linksRight,
-  .desktopActions {
-    display: none;
-  }
-
-  .homeBtn {
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 13px;
-  }
-
-  .hamburger {
-    display: flex;
-    position: absolute;
-    right: 20px;
-  }
+  .nav { justify-content: center; padding: 0 20px; }
+  .linksLeft, .linksRight, .desktopActions { display: none; }
+  .homeBtn { left: 50%; transform: translateX(-50%); font-size: 13px; }
+  .hamburger { display: flex; position: absolute; right: 20px; }
 
   .mobileMenu {
     display: block;
-
     position: fixed;
-    top: 70px;
-    left: 0;
-    right: 0;
-
+    top: 70px; left: 0; right: 0;
     z-index: 290;
-
-    background: var(--coal);
-
+    background: rgba(8,6,10,0.98);
+    backdrop-filter: blur(20px);
     border-bottom: 2px solid var(--ember);
-
     max-height: 0;
     overflow: hidden;
-
-    transition: max-height 0.35s ease;
+    transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1);
   }
-
   .mobileMenuOpen {
     max-height: calc(100vh - 70px);
     overflow-y: auto;
   }
 
-  .mobileLinks {
-    list-style: none;
-    padding: 8px 24px 0;
-  }
-
-  .mobileLinks li {
-    border-bottom: 1px solid var(--border);
-  }
-
+  .mobileLinks { list-style: none; padding: 8px 24px 0; }
+  .mobileLinks li { border-bottom: 1px solid var(--border); }
   .mobileLinks a {
     display: block;
     padding: 18px 0;
-
-    font-family: "Cinzel", serif;
-    font-size: 22px;
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-
     color: var(--text);
+    transition: color 0.15s, padding-left 0.2s;
   }
+  .mobileLinks a:hover { color: var(--ember-light); padding-left: 8px; }
 
-  .mobileLang {
-    display: flex;
-    gap: 10px;
-    padding: 20px 24px;
-  }
-
+  .mobileLang { display: flex; gap: 10px; padding: 20px 24px; }
   .mobileLangBtn {
     flex: 1;
-    padding: 13px;
-
+    padding: 12px;
     background: var(--ash);
     border: 1px solid var(--border2);
-
-    font-family: "Cinzel", serif;
-    font-size: 14px;
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
     font-weight: 700;
-
     color: var(--muted);
+    transition: border-color 0.15s, color 0.15s;
   }
-
-  .mobileLangActive {
-    border-color: var(--ember);
-    color: var(--ember-light);
-  }
+  .mobileLangActive { border-color: var(--ember); color: var(--ember-light); }
 
   .mobileBookBtn {
     display: block;
-
     margin: 0 24px 24px;
-
     padding: 16px;
-
     background: var(--ember);
     color: white;
-
     text-align: center;
-
-    font-family: "Cinzel", serif;
+    font-family: 'Cinzel', serif;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
+    box-shadow: 0 4px 24px rgba(184,35,42,0.35);
+    transition: background 0.2s;
   }
+  .mobileBookBtn:hover { background: var(--ember-light); }
 
   .backdrop {
     display: block;
-
     position: fixed;
     inset: 0;
-
     z-index: 280;
-
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(2px);
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(3px);
   }
 }
