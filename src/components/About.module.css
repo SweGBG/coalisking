@@ -70,16 +70,20 @@
 
 .tempBadge {
   position: absolute;
-  bottom: 24px; right: 24px;
+  bottom: 16px;
+  right: 16px;
+  /* Hindrar badge från att gå utanför imgWrap */
+  max-width: calc(100% - 32px);
   background: rgba(8,6,10,0.92);
   border: 1px solid var(--ember);
-  padding: 20px 24px;
+  padding: 14px 18px;
   text-align: center;
   box-shadow: 0 0 24px rgba(184,35,42,0.2);
+  box-sizing: border-box;
 }
 .tempNum {
   font-family: 'Cinzel', serif;
-  font-size: 36px;
+  font-size: clamp(22px, 5vw, 36px);
   font-weight: 900;
   color: var(--ember-light);
   line-height: 1;
@@ -162,4 +166,11 @@
   .stats { flex-wrap: wrap; gap: 20px; }
   .stat { padding-right: 16px; margin-right: 0; border-right: 1px solid var(--border); flex: 1 1 calc(33.333% - 20px); min-width: 80px; }
   .stat:last-child { border-right: none; }
+
+  .tempBadge {
+    bottom: 12px;
+    right: 12px;
+    max-width: calc(100% - 24px);
+    padding: 10px 14px;
+  }
 }
