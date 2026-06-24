@@ -10,7 +10,7 @@ export default function About() {
   return (
     <section className={styles.section} id="om-oss">
       <div className={styles.inner}>
-        <div className={styles.imgWrap}>
+        <div className={styles.imgWrap} data-reveal="left">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=900&q=85&fit=crop&crop=center" alt="Coal is King kök" />
           <div className={styles.imgOverlay} />
@@ -21,10 +21,10 @@ export default function About() {
         </div>
 
         <div className={styles.right}>
-          <div className={styles.eyebrow}>{tr.eyebrow}</div>
-          <h2 className={styles.title}>{tr.title}</h2>
-          <p className={styles.body}>{tr.body1}</p>
-          <p className={styles.body}>{tr.body2}</p>
+          <div className={styles.eyebrow} data-reveal>{tr.eyebrow}</div>
+          <h2 className={`${styles.title} ember-sheen`} data-reveal style={{ ["--reveal-delay" as string]: "0.08s" }}>{tr.title}</h2>
+          <p className={styles.body} data-reveal style={{ ["--reveal-delay" as string]: "0.16s" }}>{tr.body1}</p>
+          <p className={styles.body} data-reveal style={{ ["--reveal-delay" as string]: "0.22s" }}>{tr.body2}</p>
 
           <div className={styles.stats}>
             <div className={styles.stat}>

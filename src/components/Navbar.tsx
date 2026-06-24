@@ -86,13 +86,13 @@ export default function Navbar() {
             className={`${styles.mobileLangBtn} ${lang === "sv" ? styles.mobileLangActive : ""}`}
             onClick={() => setLang("sv")}
           >
-            🇸🇪 Svenska
+            <SE title="Svenska" className={styles.mobileFlag} /> Svenska
           </button>
           <button
             className={`${styles.mobileLangBtn} ${lang === "en" ? styles.mobileLangActive : ""}`}
             onClick={() => setLang("en")}
           >
-            🇬🇧 English
+            <GB title="English" className={styles.mobileFlag} /> English
           </button>
         </div>
         <a href="#kontakt" className={styles.mobileBookBtn} onClick={() => setMenuOpen(false)}>{tr.book}</a>

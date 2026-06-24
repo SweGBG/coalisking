@@ -18,9 +18,9 @@ export default function Contact() {
   return (
     <section className={styles.section} id="kontakt">
       <div className={styles.inner}>
-        <div className={styles.left}>
+        <div className={styles.left} data-reveal="left">
           <div className={styles.eyebrow}>{tr.eyebrow}</div>
-          <h2 className={styles.title}>{tr.title}</h2>
+          <h2 className={`${styles.title} ember-sheen`}>{tr.title}</h2>
           <p className={styles.sub}>{tr.sub}</p>
 
           <div className={styles.mapWrap}>
@@ -50,7 +50,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className={styles.right}>
+        <div className={styles.right} data-reveal="right">
           {sent ? (
             <div className={styles.success}>
               <div className={styles.successIcon}>✓</div>

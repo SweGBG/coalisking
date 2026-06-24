@@ -221,6 +221,10 @@
   .mobileLang { display: flex; gap: 10px; padding: 20px 24px; }
   .mobileLangBtn {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
     padding: 12px;
     background: var(--ash);
     border: 1px solid var(--border2);
@@ -230,6 +234,7 @@
     color: var(--muted);
     transition: border-color 0.15s, color 0.15s;
   }
+  .mobileFlag { width: 22px; height: auto; border-radius: 2px; flex-shrink: 0; }
   .mobileLangActive { border-color: var(--ember); color: var(--ember-light); }
 
   .mobileBookBtn {

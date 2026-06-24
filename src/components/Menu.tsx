@@ -14,12 +14,12 @@ export default function Menu() {
   return (
     <section className={styles.section} id="meny">
       <div className={styles.header}>
-        <div className={styles.eyebrow}>{tr.eyebrow}</div>
-        <h2 className={styles.title}>{tr.title}</h2>
-        <p className={styles.sub}>{tr.sub}</p>
+        <div className={styles.eyebrow} data-reveal>{tr.eyebrow}</div>
+        <h2 className={`${styles.title} ember-sheen`} data-reveal style={{ ["--reveal-delay" as string]: "0.08s" }}>{tr.title}</h2>
+        <p className={styles.sub} data-reveal style={{ ["--reveal-delay" as string]: "0.16s" }}>{tr.sub}</p>
       </div>
 
-      <div className={styles.filters}>
+      <div className={styles.filters} data-reveal style={{ ["--reveal-delay" as string]: "0.2s" }}>
         {tr.cats.map((cat, i) => (
           <button key={cat} className={`${styles.filter} ${active === i ? styles.filterActive : ""}`} onClick={() => setActive(i)}>
             {cat}
@@ -29,7 +29,7 @@ export default function Menu() {
 
       <div className={styles.grid}>
         {filtered.map((item, i) => (
-          <div key={i} className={styles.card}>
+          <div key={`${active}-${i}`} className={styles.card} data-reveal="scale" style={{ ["--reveal-delay" as string]: `${Math.min(i, 6) * 0.06}s` }}>
             <div className={styles.cardTop}>
               <div className={styles.cardName}>{item.name}</div>
               {item.tag && <span className={`${styles.tag} ${item.tag === "Kung" || item.tag === "King" ? styles.tagKing : item.tag === "Signatur" || item.tag === "Signature" ? styles.tagSig : styles.tagPop}`}>{item.tag}</span>}

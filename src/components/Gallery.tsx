@@ -21,12 +21,12 @@ export default function Gallery() {
   return (
     <section className={styles.section} id="galleri">
       <div className={styles.header}>
-        <div className={styles.eyebrow}>{tr.eyebrow}</div>
-        <h2 className={styles.title}>{tr.title}</h2>
+        <div className={styles.eyebrow} data-reveal>{tr.eyebrow}</div>
+        <h2 className={`${styles.title} ember-sheen`} data-reveal style={{ ["--reveal-delay" as string]: "0.08s" }}>{tr.title}</h2>
       </div>
       <div className={styles.grid}>
         {photos.map((p, i) => (
-          <div key={i} className={`${styles.cell} ${p.span === "wide" ? styles.wide : ""}`}>
+          <div key={i} className={`${styles.cell} ${p.span === "wide" ? styles.wide : ""}`} data-reveal="scale" style={{ ["--reveal-delay" as string]: `${Math.min(i, 6) * 0.06}s` }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={p.src} alt={`Coal is King foto ${i + 1}`} />
             <div className={styles.cellOverlay} />

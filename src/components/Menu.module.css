@@ -58,24 +58,27 @@
 /* ── FILTERS ── */
 .filters {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 2px;
+  gap: 8px;
   margin-bottom: 48px;
-  overflow-x: auto;
-  scrollbar-width: none;
   padding-bottom: 4px;
   position: relative;
   z-index: 1;
 }
-.filters::-webkit-scrollbar { display: none; }
 
 @media (max-width: 768px) {
+  /* Mobil: visa alla kategorier i ett rutnät — ingen sidoscroll */
   .filters {
-    justify-content: flex-start;
-    padding: 0 20px 4px;
-    margin-left: -20px;
-    margin-right: -20px;
-    width: calc(100% + 40px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 36px;
+    padding: 0;
+  }
+  /* "Allt" (första) spänner över hela bredden som en tydlig huvudknapp */
+  .filters > :first-child {
+    grid-column: 1 / -1;
   }
 }
 
@@ -89,17 +92,28 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  transition: all 0.2s;
+  transition: all 0.25s cubic-bezier(0.22,1,0.36,1);
   white-space: nowrap;
   flex-shrink: 0;
   min-height: 40px;
 }
-.filter:hover { border-color: var(--ember); color: var(--cream); background: var(--ember-glow2); }
+.filter:hover { border-color: var(--ember); color: var(--cream); background: var(--ember-glow2); transform: translateY(-1px); }
 .filterActive {
   background: var(--ember);
   border-color: var(--ember);
   color: #fff;
   box-shadow: 0 0 16px rgba(184,35,42,0.35);
+}
+
+@media (max-width: 768px) {
+  .filter {
+    width: 100%;
+    text-align: center;
+    padding: 13px 10px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    min-height: 48px;
+  }
 }
 
 /* ── GRID ── */
@@ -120,7 +134,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: background 0.2s;
+  transition: background 0.25s, transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
   position: relative;
   overflow: hidden;
 }
@@ -132,13 +146,24 @@
   background: transparent;
   transition: background 0.2s, box-shadow 0.2s;
 }
-.card:hover { background: var(--ash); }
+/* Glödstrimma som sveper över kortet vid hover */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(212,50,58,0.07) 50%, transparent 65%);
+  transform: translateX(-120%);
+  transition: transform 0.7s cubic-bezier(0.22,1,0.36,1);
+  pointer-events: none;
+}
+.card:hover { background: var(--ash); transform: translateY(-3px); box-shadow: 0 16px 34px -18px rgba(0,0,0,0.8); z-index: 2; }
 .card:hover::before {
   background: var(--ember);
   box-shadow: 0 0 12px rgba(184,35,42,0.4);
 }
+.card:hover::after { transform: translateX(120%); }
 
-.cardTop { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.cardTop { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; position: relative; z-index: 1; }
 .cardName {
   font-family: 'Cinzel', serif;
   font-size: 16px;
@@ -164,7 +189,7 @@
 .tagSig { background: transparent; border: 1px solid var(--copper); color: var(--copper-light); }
 .tagPop { background: var(--ash2); color: var(--muted); border: 1px solid var(--border2); }
 
-.cardDesc {
+.cardDesc { position: relative; z-index: 1;
   font-size: 13px;
   color: var(--muted);
   font-style: italic;
@@ -172,7 +197,7 @@
   line-height: 1.55;
 }
 
-.cardFooter {
+.cardFooter { position: relative; z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
